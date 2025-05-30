@@ -13,20 +13,27 @@ if (-not (scoop bucket list | Select-String -Pattern "^extras$")) {
     scoop bucket add extras
 }
 
+# Agrega el bucket 'java' si no existe
+if (-not (scoop bucket list | Select-String -Pattern "^java$")) {
+    Write-Host "Agregando el bucket 'java'..." -ForegroundColor Yellow
+    scoop bucket add java
+}
+
 # Lista de herramientas disponibles
 $tools = @{
     1 = "nodejs-lts"
     2 = "python"
-    3 = "openjdk"
-    4 = "vscode"
-    5 = "curl"
-    6 = "go"
-    7 = "7zip"
-    8 = "neovim"
-    9 = "sts"
-    10 = "intellij-idea-community"
-    11 = "dbeaver"
-    12 = "postman"
+    3 = "openjdk17"
+    4 = "openjdk21"
+    5 = "vscode"
+    6 = "mobaxterm"
+    7 = "go"
+    8 = "7zip"
+    9 = "notepadplusplus"
+    10 = "sts"
+    11 = "intellij-idea-community"
+    12 = "dbeaver"
+    13 = "postman"
 }
 
 function Mostrar-Menu {
